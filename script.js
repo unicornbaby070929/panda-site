@@ -242,7 +242,7 @@ setInterval(() => {
         if (Notification.permission === 'granted') {
       new Notification('🐼 姐姐該吃飯了！', {
         body: '姐姐～ 12:35 到囉，該去吃午餐了 🍚 熊貓陪你一起吃 🎋',
-        icon: 'images/panda.png'
+        icon: 'images/panda.jpg'
       });
     }
   }
