@@ -352,3 +352,30 @@ body {
 #add-btn:active {
   transform: scale(0.95);
 }
+/* ===== 選熊貓 ===== */
+.panda-select {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.panda-choice {
+  padding: 10px 20px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.panda-choice:hover {
+  border-color: #4caf50;
+}
+
+.panda-choice.active {
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
