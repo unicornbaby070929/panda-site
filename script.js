@@ -215,7 +215,7 @@ notifyBtn.addEventListener('click', async () => {
     notifyBtn.classList.add('enabled');
       new Notification('🐼 熊貓小站', {
       body: '姐姐，吃飯提醒已開啟！12:35 會提醒你吃飯～',
-      icon: 'images/panda.png'
+      icon: 'images/panda.jpg'
     });
   } else {
     alert('❌ 你拒絕了通知權限，請到瀏覽器設定裡重新允許');
