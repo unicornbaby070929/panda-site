@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>熊貓小站</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- 飄落裝飾 -->
+<div class="petals" id="petals"></div>
+  <!-- 導航列 -->
+  <nav>
+    <h1>🐼 熊貓小站</h1>
+    <div class="nav-buttons">
+      <button data-tab="home" class="active">首頁</button>
+      <button data-tab="timer">計時</button>
+      <button data-tab="chat">聊天</button>
+      <button data-tab="study">學習</button>
+    </div>
+    <button id="notify-btn" class="notify-btn">🔔 開啟吃飯提醒</button>
+  </nav>
+
+  <!-- 首頁 -->
+  <section id="home" class="tab active">
+<img src="images/panda.jpg" alt="熊貓" width="300" class="panda-cursor">
+    <h2>歡迎來到熊貓小站</h2>
+    <p>深呼吸，慢慢來，熊貓陪你一起放鬆 🍃</p>
+  </section>
+
+   <!-- 計時 -->
+  <section id="timer" class="tab">
+    <h2>⏱️ 番茄鐘</h2>
+    <div id="time-display">25:00</div>
+    <div class="timer-buttons">
+      <button id="start-btn">開始</button>
+      <button id="reset-btn">重設</button>
+    </div>
+    <p class="hint">🐼 專注 25 分鐘，然後休息 5 分鐘</p>
+  </section>
+
+  <!-- 聊天 -->
+  <section id="chat" class="tab">
+    <h2>💬 跟熊貓聊天</h2>
+    <div id="chat-box"></div>
+    <div class="chat-input">
+      <input type="text" id="chat-input" placeholder="跟熊貓說說話...">
+      <button id="send-btn">送出</button>
+    </div>
+  </section>
+
+  <!-- 學習 -->
+  <section id="study" class="tab">
+    <h2>📚 學習待辦</h2>
+    <div class="todo-input">
+      <input type="text" id="todo-input" placeholder="今天要學什麼？">
+      <button id="add-btn">新增</button>
+    </div>
+    <ul id="todo-list"></ul>
+    <p class="hint">🐼 點文字打勾，點 ❌ 刪除</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
