@@ -296,11 +296,17 @@ function renderTodos() {
     delBtn.className = 'delete-btn';
     delBtn.textContent = '❌';
 
-    // 點文字切換完成
+      // 點文字切換完成
     li.addEventListener('click', () => {
+      const wasDone = todos[index].done;
       todos[index].done = !todos[index].done;
       saveTodos();
       renderTodos();
+
+      // 只有「從未完成變成完成」才恭喜（取消打勾不恭喜）
+      if (!wasDone && todos[index].done) {
+        showCongrats();
+      }
     });
 
     // 點 ❌ 刪除（阻止冒泡，避免觸發上面的打勾）
@@ -414,4 +420,34 @@ setInterval(createPetal, 800);
 
 // 一開始先灑幾片
 for (let i = 0; i < 5; i++) createPetal();
+// ===== 完成任務恭喜彈窗 =====
+const congratsPopup = document.getElementById('congrats-popup');
+const congratsText = document.getElementById('congrats-text');
+const congratsClose = document.getElementById('congrats-close');
 
+const congratsMessages = [
+  '太棒了！你完成了一項任務！🎉',
+  '熊貓為你鼓掌！👏 繼續加油～',
+  '哇！又完成一件，你好厲害！✨',
+  '做得好！休息一下，喝口水吧 🍵',
+  '熊貓覺得你超棒的！🐼💚',
+  '完成啦！給自己一個讚 👍',
+  '你今天已經很努力了，熊貓都看到了 🌿'
+];
+
+function showCongrats() {
+  const msg = congratsMessages[Math.floor(Math.random() * congratsMessages.length)];
+  congratsText.textContent = msg;
+  congratsPopup.classList.remove('hidden');
+}
+
+congratsClose.addEventListener('click', () => {
+  congratsPopup.classList.add('hidden');
+});
+
+// 點背景也可以關閉
+congratsPopup.addEventListener('click', (e) => {
+  if (e.target === congratsPopup) {
+    congratsPopup.classList.add('hidden');
+  }
+});
