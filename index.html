@@ -5,6 +5,23 @@
   <title>熊貓小站</title>
   <link rel="stylesheet" href="style.css">
 </head>
+  <!-- 人物介紹彈窗 -->
+  <div id="profile-popup" class="profile-popup hidden">
+    <div class="profile-content">
+      <button id="profile-close" class="close-btn">✖</button>
+      <div class="profile-header">
+        <img id="profile-img" src="images/yingying.jpg" alt="熊貓照片">
+        <h2 id="profile-name">名字</h2>
+        <p id="profile-nickname" class="nickname">花名：...</p>
+      </div>
+      <div class="profile-body">
+        <p><strong>性格：</strong><span id="profile-personality">...</span></p>
+        <p><strong>最愛做的事：</strong><span id="profile-hobby">...</span></p>
+        <p><strong>小特點：</strong><span id="profile-trait">...</span></p>
+        <p><strong>生日／年齡：</strong><span id="profile-age">...</span></p>
+      </div>
+    </div>
+  </div>
 <body>
 <!-- 飄落裝飾 -->
 <div class="petals" id="petals"></div>
@@ -22,11 +39,39 @@
 
   <!-- 首頁 -->
   <section id="home" class="tab active">
-<img src="images/panda.jpg" alt="熊貓" width="300" class="panda-cursor">
+    <img src="images/panda.jpg" alt="熊貓" width="300" class="panda-cursor">
     <h2>歡迎來到熊貓小站</h2>
     <p>深呼吸，慢慢來，熊貓陪你一起放鬆 🍃</p>
-  </section>
 
+    <!-- 熊貓圖鑑 -->
+    <div class="panda-gallery">
+      <h3>🐼 熊貓家庭成員</h3>
+      <p class="hint">點擊照片看介紹</p>
+      
+      <div class="gallery-grid">
+        <!-- 盈盈 -->
+        <div class="gallery-card" onclick="openProfile('yingying')">
+          <img src="images/yingying.jpg" alt="盈盈">
+          <p>🌿 盈盈</p>
+        </div>
+        <!-- 樂樂 -->
+        <div class="gallery-card" onclick="openProfile('lele')">
+          <img src="images/lele.jpg" alt="樂樂">
+          <p>💧 樂樂</p>
+        </div>
+        <!-- 加加 -->
+        <div class="gallery-card" onclick="openProfile('jiajia')">
+          <img src="images/jiajia.jpg" alt="加加">
+          <p>🎋 加加</p>
+        </div>
+        <!-- 得得 -->
+        <div class="gallery-card" onclick="openProfile('dede')">
+          <img src="images/dede.jpg" alt="得得">
+          <p>🍃 得得</p>
+        </div>
+      </div>
+    </div>
+  </section>
    <!-- 計時 -->
   <section id="timer" class="tab">
     <h2>⏱️ 番茄鐘</h2>
@@ -43,8 +88,9 @@
     <h2>💬 跟熊貓聊天</h2>
 
     <!-- 選熊貓 -->
-    <div class="panda-select">
+       <div class="panda-select">
       <button class="panda-choice active" data-panda="yingying">🌿 盈盈</button>
+      <button class="panda-choice" data-panda="lele">💧 樂樂</button>
       <button class="panda-choice" data-panda="jiajia">🎋 加加</button>
       <button class="panda-choice" data-panda="dede">🍃 得得</button>
     </div>
@@ -53,6 +99,17 @@
     <div class="chat-input">
       <input type="text" id="chat-input" placeholder="跟熊貓說說話...">
       <button id="send-btn">送出</button>
+    </div>
+        <!-- 熊貓表情包按鈕 -->
+    <div class="emoji-bar">
+      <button class="emoji-btn" data-emoji="🐼">🐼</button>
+      <button class="emoji-btn" data-emoji="🎋">🎋</button>
+      <button class="emoji-btn" data-emoji="🍃">🍃</button>
+      <button class="emoji-btn" data-emoji="💧">💧</button>
+      <button class="emoji-btn" data-emoji="🥺">🥺</button>
+      <button class="emoji-btn" data-emoji="🤣">🤣</button>
+      <button class="emoji-btn" data-emoji="💖">💖</button>
+      <button class="emoji-btn" data-emoji="😴">😴</button>
     </div>
   </section>
 

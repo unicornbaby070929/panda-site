@@ -438,3 +438,230 @@ body {
   background: #45a049;
   transform: translateY(-2px);
 }
+/* ===== 聊天框美化 ===== */
+#chat-box {
+  background-color: #fbfdfb;
+  /* 用 CSS 畫出淡淡的圓點背景，像竹林裡的斑點 */
+  background-image: radial-gradient(#dcedc8 1px, transparent 1px);
+  background-size: 20px 20px;
+  border: 2px solid #c8e6c9; /* 淺綠色邊框 */
+  border-radius: 20px;
+  padding: 20px;
+  height: 350px;
+  overflow-y: auto;
+  margin: 20px 0;
+  text-align: left;
+  box-shadow: inset 0 0 20px rgba(200, 230, 201, 0.5); /* 內陰影，增加立體感 */
+  scroll-behavior: smooth;
+}
+
+/* 對話氣泡 */
+.msg {
+  margin: 12px 0;
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 75%;
+  width: fit-content;
+  clear: both;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 15px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 氣泡陰影 */
+}
+
+/* 使用者的氣泡（右邊，綠色） */
+.msg.user {
+  background: linear-gradient(135deg, #a5d6a7, #81c784);
+  color: #1b5e20;
+  margin-left: auto;
+  border-bottom-right-radius: 4px; /* 右下角變尖，像小尾巴 */
+}
+
+/* 熊貓的氣泡（左邊，白色） */
+.msg.panda {
+  background: #ffffff;
+  color: #333;
+  margin-right: auto;
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: 4px; /* 左下角變尖 */
+}
+
+/* ===== 聊天框整體裝飾 ===== */
+#chat-box {
+  position: relative;
+  background-color: #fdfcf8; /* 淡淡的米黃色，像竹子造紙的顏色 */
+  background-image: 
+    radial-gradient(#e0e0e0 1px, transparent 1px), 
+    radial-gradient(#e0e0e0 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px; /* 小點點背景 */
+  border: 3px dashed #a5d6a7; /* 綠色虛線邊框，像竹節 */
+  border-radius: 25px;
+  padding: 25px 20px;
+  height: 380px;
+  overflow-y: auto;
+  margin: 20px 0;
+  text-align: left;
+  box-shadow: inset 0 0 15px rgba(165, 214, 167, 0.2);
+}
+
+/* 在右上角加上浮水印熊貓 */
+#chat-box::before {
+  content: "🐼🎋";
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 40px;
+  opacity: 0.15; /* 半透明，不會擋住字 */
+  pointer-events: none; /* 不影響滑鼠點擊 */
+  transform: rotate(15deg);
+}
+
+/* 對話氣泡（乾淨版） */
+.msg {
+  margin: 12px 0;
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 75%;
+  width: fit-content;
+  clear: both;
+  word-wrap: break-word;
+  line-height: 1.6;
+  font-size: 15px;
+  position: relative;
+  z-index: 2; /* 確保氣泡在浮水印上面 */
+}
+
+/* 你的氣泡（右邊） */
+.msg.user {
+  background: #c8e6c9;
+  color: #1b5e20;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+/* 熊貓的氣泡（左邊） */
+.msg.panda {
+  background: #ffffff;
+  color: #333;
+  margin-right: auto;
+  border: 1px solid #e0e0e0;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+/* ===== 熊貓圖鑑 ===== */
+.panda-gallery {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+}
+
+.gallery-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.gallery-card {
+  background: white;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 120px;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(76, 175, 80, 0.2);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.gallery-card p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ===== 人物介紹彈窗 ===== */
+.profile-popup {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.profile-popup.hidden {
+  display: none;
+}
+
+.profile-content {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  animation: popIn 0.3s ease;
+  text-align: left;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px; right: 15px;
+  background: none; border: none;
+  font-size: 20px; cursor: pointer;
+  color: #999;
+  transition: 0.2s;
+}
+
+.close-btn:hover { color: #333; }
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #c8e6c9;
+  margin-bottom: 10px;
+}
+
+.profile-header h2 {
+  color: #2c2c2c;
+  margin-bottom: 5px;
+}
+
+.profile-header .nickname {
+  color: #4caf50;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.profile-body p {
+  margin: 12px 0;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+  border-bottom: 1px dashed #eee;
+  padding-bottom: 10px;
+}
